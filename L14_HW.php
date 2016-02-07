@@ -1,8 +1,25 @@
 <?php
 
 Class Point {
-    public $x1;
-    public $y1;
+    protected $x1;
+    protected $y1;
+
+    public function setX1($x1)
+    {
+        $this->x1 = settype ($x1,"integer");
+    }
+    public function getX1()
+    {
+        return $this->x1;
+    }
+    public function setY1($y1)
+    {
+        $this->y1 = settype ($y1,"integer");
+    }
+    public function getY1()
+    {
+        return $this->y1;
+    }
 
     public function display(){
         echo "x1=".$this->x1."</br>";
@@ -10,8 +27,8 @@ Class Point {
     }
 }
 $p = new Point();
-$p->x1=1;
-$p->y1=1;
+$p->setX1(1);
+$p->setY1(1);
 $p->display();
 
 Class Line extends Point{
@@ -26,26 +43,10 @@ Class Line extends Point{
 }
 
 $l = new Line();
-$l->x1=2;
-$l->y1=3;
+$l->setX1(2);
+$l->setY1(3);
 $l->x2=4;
 $l->y2=6;
 
 $l->display();
 
-Class Triangle extends Line{
-    public $x3;
-    public $y3;
-
-    public function display(){
-        parent::display();
-        echo "x3=".$this->x3."</br>";
-        echo "y3=".$this->y3."</br>";
-    }
-}
-
-$tr = new Triangle();
-$tr ->x3=4;
-$tr ->y3=4;
-
-$tr->display();
